@@ -1,0 +1,86 @@
+<%- include('./base/header.ejs') %>
+    <!-- <h1> we are going to add student detail...</h1> -->
+    <%- include('./base/nav.ejs') %>
+        <div class="container">
+            <div class="alert text-center bg-primary my-3" style="color: white;">
+                <h4>Edit Student</h4>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col">
+                    <form action="/edit/student/<%= student._id %>" method="post">
+                        <div>
+                            <label for="" class="form-label">Roll No</label>
+                            <input type="number" class="form-control" name="rollNo"
+                                value="<%= student.rollNo %>"></input>
+                        </div>
+                        <div>
+                            <label for="" class="form-label">Student Name</label>
+                            <input type="text" class="form-control" name="name" value="<%=student.name %>"></input>
+                        </div>
+                        <div>
+                            <label for="" class="form-label">Father Name</label>
+                            <input type="text" class="form-control" name="fatherName"
+                                value="<%= student.fatherName %>"></input>
+                        </div>
+                        <div>
+                            <label for="" class="form-label">Course</label>
+                            <!-- <input type="select" class="form-control" name="course"></input> -->
+                            <select class="form-control" name="course">
+                                <option value="">-- Select Course --</option>
+                                <option value="BTech">BTech</option>
+                                <option value="BCA">BCA</option>
+                                <option value="BSc">BSc</option>
+                            </select>
+
+                        </div>
+                        <div>
+                            <label for="" class="form-label">Branch</label>
+                            <!-- <input type="text" class="form-control" name="branch"></input> -->
+                            <select class="form-control" name="branch">
+                                <option value="">-- Select Branch --</option>
+                                <!-- BTech Branches -->
+                                <option value="Computer Science">Computer Science (BTech)</option>
+                                <option value="Mechanical">Mechanical (BTech)</option>
+                                <option value="Electrical">Electrical (BTech)</option>
+                                <option value="Civil">Civil (BTech)</option>
+                                <!-- BCA Branches -->
+                                <option value="General">General (BCA)</option>
+                                <option value="Data Science">Data Science (BCA)</option>
+                                <option value="Cyber Security">Cyber Security (BCA)</option>
+                                <!-- BSc Branches -->
+                                <option value="Physics">Physics (BSc)</option>
+                                <option value="Chemistry">Chemistry (BSc)</option>
+                                <option value="Mathematics">Mathematics (BSc)</option>
+                                <option value="Biology">Biology (BSc)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="" class="form-label">Year of admission</label>
+                            <!-- <input type="number" class="form-control" name="yearOfAdmission"></input> -->
+                            <select name="yearOfAdmission" id="" class="form-control">
+                                <option value="">-- Select Year-Of-Admission --</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="" class="form-control">Student Image</label>
+                            <input type="file" class="form-control" name="studentImage">
+                        </div>
+                        <input type="submit" value="Edit Student" class="btn btn-warning w-100 my-3">
+                        <!-- <div>
+                        <a href="/" class="btn btn-danger w-100 my-3">Login</a>
+                    </div> -->
+                    </form>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+
+        <%- include('./base/footer.ejs') %>

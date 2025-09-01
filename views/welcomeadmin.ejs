@@ -1,0 +1,90 @@
+<%- include('./base/header.ejs') %>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#" style="color: white;">RDEC</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/student/add/page" style="color: white;">Add
+              Student</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" style="color: white;">List Students</a>
+          </li>
+          <!-- <li class="nav-item">
+          <a class="nav-link" href="#" style="color: white;">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" style="color: white;">Disabled</a>
+        </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="alert text-center bg-primary my-3" style="color: white;">
+      <h4>Student List</h4>
+    </div>
+  </div>
+  <div class="container">
+    <table class="table text-center">
+      <thead>
+        <tr>
+          <th>Student Photo</th>
+          <th>Roll No</th>
+          <th>Student Name</th>
+          <th>Father Name</th>
+          <th>Course</th>
+          <th>Branch</th>
+          <th>Year Of Admission</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% students.forEach((student)=> { %>
+          <tr>
+            <td>
+              <img src="<%= student.studentImage %>" alt="Student Image" width="50px" height="50px"></img>
+            </td>
+            <td>
+              <%=student.rollNo %>
+            </td>
+            <td>
+              <%=student.name %>
+            </td>
+            <td>
+              <%=student.fatherName %>
+            </td>
+            <td>
+              <%=student.course %>
+            </td>
+            <td>
+              <%=student.branch %>
+            </td>
+            <td>
+              <%=student.yearOfAdmission %>
+            </td>
+            <td>
+              <a href="/edit/student/page/<%= student._id %>" class="btn btn-sm">
+                <img
+                  src="https://img.favpng.com/18/15/5/computer-icons-editing-icon-design-png-favpng-YEAb5Q1mFu6tEWaqYMdE5m4rb.jpg"
+                  alt="Edit" width="16">
+              </a>
+              <a href="/delete/student/<%= student._id %>" class="btn btn-sm">
+                <img src="https://www.clipartmax.com/png/middle/84-842915_delete-icon-png-red.png" alt="Delete"
+                  width="25">
+              </a>
+            </td>
+          </tr>
+          <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- <h1>Welcome!</h1> -->
+  <%- include('./base/footer.ejs') %>

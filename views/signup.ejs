@@ -1,0 +1,52 @@
+<%- include('./base/header.ejs') %>
+    <!-- <h1> we are going to start server side rendering </h1> -->
+    <div class="container-fluid">
+        <div class="row vh-100">
+            <div class="card shadow-lg p-4 rounded-4 col-md-6 bg-light">
+                <!-- <div class="container"> -->
+                <div class="alert text-center text-primary my-3 fw-bold" style="color: white;">
+                    <h4>Sign Up Form</h4>
+                </div>
+                <!-- </div> -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col"></div>
+                        <div class="col">
+                            <form action="/add/user" method="post">
+                                <div>
+                                    <label for="" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" name="firstName"></input>
+                                </div>
+                                <div>
+                                    <label for="" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" name="lastName"></input>
+                                </div>
+                                <div>
+                                    <label for="" class="form-label">Email</label>
+                                    <input type="email" class="form-control" name="email"></input>
+                                </div>
+                                <div>
+                                    <label for="" class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="password"></input>
+                                </div>
+                                <input type="submit" value="Sign Up" class="btn btn-primary w-100 my-3">
+                                <div>
+                                    <a href="/" class="btn btn-outline-primary w-100 my-3">Login</a>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center bg-primary bg-gradient text-white text-center p-5"
+                style="background-color:  rgb(84 153 196);">
+                <div class="bg-white p-3 rounded-circle shadow mb-3">
+                    <img src="https://www.getadmissioninfo.com/uploads/topics/RD%20Engineering%20College,%20Ghaziabad%20logo.png"
+                        alt="RDEC Logo" width="200px">
+                </div>
+                <h3 class="fw-bold">Project Name</h3>
+            </div>
+        </div>
+    </div>
+    <%- include('./base/footer.ejs') %>
