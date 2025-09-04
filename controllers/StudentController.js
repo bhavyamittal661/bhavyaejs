@@ -19,6 +19,7 @@ async function addStudent(req , res)  {
         let student = new Student(req.body);
         if(req.file){
             student.studentImage = result.secure_url;
+            student.imagePublicId = result.public_id; // <-- Added this line to save public id of image
         }
         await student.save();
         // console.log("data base updated...");
@@ -34,6 +35,19 @@ async function deleteStudent(req , res) {
     try{
         let studentId = req.params._id;
         // console.log(studentId , ' deleteStudent ');
+        // Find the student first to get the image public_id
+        const student = await Student.findById(studentId);
+
+        if (student?.imagePublicId) {
+            cloudinary.config({
+                cloud_name: 'donh5jwfg',
+                api_key: '238278623811188',
+                api_secret: 'NPBSB3qmlPYHd81gLvAziwh9x5w'
+            });
+
+            // Delete the image from Cloudinary
+            await cloudinary.uploader.destroy(student.imagePublicId);
+        }
         await Student.deleteOne({ _id : studentId });
         let students = await Student.find({});
         res.render('welcomeadmin' , {

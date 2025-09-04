@@ -19,9 +19,9 @@ app.set('views' , path.resolve('./views'));
 
 app.listen(3000 , (err) => {
     if(err){
-        // console.log(err);
+        console.log(err);
     }
     else{
-        // console.log("Server is running on 3000...");
+        console.log("Server is running on 3000...");
     }
 })
